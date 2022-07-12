@@ -1,5 +1,5 @@
 import TextBoxPage from "../../pageObjects/textBoxPage"; // - finished
-import CheckBoxPage from "../../pageObjects/checkBoxPage"; // - not finished
+import CheckBoxPage from "../../pageObjects/checkBoxPage"; // - finished
 import RadioButtonsPage from "../../pageObjects/radioButtonsPage"; // - finished
 import WebTablesPage from "../../pageObjects/webTablesPage"; // - finished
 
@@ -31,18 +31,27 @@ context("Elements Page", () => {
     beforeEach(() => {
       CheckBoxPage.visit();
     });
-    it("Checkboxes", () => {
+    it("Checkbox checking, scenario 1", () => {
       // Create checkbox scenario 1:
       // Click the "+"/expand button
       CheckBoxPage.expand.click();
       // Click Notes, React, Angular, General, Excel File.doc
       CheckBoxPage.notes.click();
+      CheckBoxPage.react.click();
+      CheckBoxPage.angular.click();
+      CheckBoxPage.general.click();
+      CheckBoxPage.excel.click();
       // Validate the clicked checkboxes
-
+      CheckBoxPage.resultVali.should("contain.text", "notesreactangulargeneralexcelFile");
+    });
+    it.only("Checkboxes, scenario 2", () => {
       // Create checkbox scenario 2:
       // Click expand button
+      CheckBoxPage.expand.click();
       // Click Office
+      CheckBoxPage.office.click();
       // Validate the checked checkboxes
+      CheckBoxPage.resultVali.should("contain.text", "officepublicprivateclassifiedgeneral");
     });
   });
 
@@ -51,7 +60,7 @@ context("Elements Page", () => {
     beforeEach(() => {
       RadioButtonsPage.visit();
     });
-    it("Radio buttons", () => {
+    it("Radio buttons, scenario 1", () => {
       // Scenario 1:
       // Click yesButton
       RadioButtonsPage.yesButton.click();
@@ -71,7 +80,7 @@ context("Elements Page", () => {
     beforeEach(() => {
       WebTablesPage.visit();
     });
-    it.only("Web tables", () => {
+    it("Web table creation, scenario 1", () => {
       // Create scenario 1:
       // Click add record button
       WebTablesPage.addRecordButton.click();
@@ -88,14 +97,14 @@ context("Elements Page", () => {
       WebTablesPage.search.type("johndoe@gmail.com");
       // validate that the user is visible
       WebTablesPage.searchVali.should("contain.text","JohnDoe24johndoe@gmail.com500Human Resources"); // 'Contain' instead of 'have' to ignore spaces
+    });
+    it("Web table deletion, scenario 2", () => {
       // Create Scenario 2:
-      WebTablesPage.search.clear();
       // Delete all table rows
       // WebTablesPage.delete.click({multiple: true});
       WebTablesPage.delete1.click();
       WebTablesPage.delete2.click();
       WebTablesPage.delete3.click();
-      WebTablesPage.delete4.click();
       // Validate that we see text - No rows found
       WebTablesPage.noData.should("contain.text","No rows found");
     });

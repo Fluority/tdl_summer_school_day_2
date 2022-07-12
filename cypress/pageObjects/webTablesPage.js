@@ -59,9 +59,6 @@ class WebTablesPage extends BasePage {
   static get delete3() {
     return cy.get('#delete-record-3')
   }
-  static get delete4() {
-    return cy.get('#delete-record-4')
-  }
 
   static get noData() {
     return cy.get('div[class="rt-noData"]');
