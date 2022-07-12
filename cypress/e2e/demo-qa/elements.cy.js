@@ -1,4 +1,6 @@
 import TextBoxPage from "../../pageObjects/textBoxPage";
+import CheckBoxPage from "../../pageObjects/checkBoxPage";
+import RadioButtonsPage from "../../pageObjects/radioButtonsPage";
 
 context("Elements Page", () => {
   context("Text box scenarios", () => {
@@ -23,27 +25,41 @@ context("Elements Page", () => {
     });
   });
 
-  context("Check box scenarios", () => {
+  context("Check box scenarios", () => { // not done
     // Create CheckBoxPage page object
-    // Create checkbox scenario 1:
-    // Click the "+"/expand button
-    // Click Notes, React, Angular, General, Excel File.doc
-    // Validate the clicked checkboxes
+    beforeEach(() => {
+      CheckBoxPage.visit();
+    });
+    it("Checkboxes", () => {
+      // Create checkbox scenario 1:
+      // Click the "+"/expand button
+      CheckBoxPage.expand.click();
+      // Click Notes, React, Angular, General, Excel File.doc
+      CheckBoxPage.notes.click();
+      // Validate the clicked checkboxes
 
-    // Create checkbox scenario 2:
-    // Click expand button
-    // Click Office
-    // Validate the checked checkboxes
+      // Create checkbox scenario 2:
+      // Click expand button
+      // Click Office
+      // Validate the checked checkboxes
+    });
   });
 
   context("Radio button scenarios", () => {
     // Create RadioButtons page object
-    // Scenario 1:
-    // Click yesButton
-    // validate the message
-    // click impressiveButton
-    // validate the message
-    // noButton - validate that the button exists but is disabled
+    beforeEach(() => {
+      RadioButtonsPage.visit();
+    });
+    it.only("Radio buttons", () => {
+      // Scenario 1:
+      // Click yesButton
+      RadioButtonsPage.yesButton.click();
+      // validate the message
+      RadioButtonsPage.yesButtonVali.should('have.text',"Yes");
+      // click impressiveButton
+      // validate the message
+      // noButton - validate that the button exists but is disabled
+    });
   });
 
   context("Web tables scenarios", () => {
