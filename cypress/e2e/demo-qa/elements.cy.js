@@ -2,6 +2,7 @@ import TextBoxPage from "../../pageObjects/textBoxPage"; // - finished
 import CheckBoxPage from "../../pageObjects/checkBoxPage"; // - finished
 import RadioButtonsPage from "../../pageObjects/radioButtonsPage"; // - finished
 import WebTablesPage from "../../pageObjects/webTablesPage"; // - finished
+import ButtonsPage from "../../pageObjects/buttonsPage"; // finished
 
 context("Elements Page", () => {
   context("Text box scenarios", () => {
@@ -44,7 +45,7 @@ context("Elements Page", () => {
       // Validate the clicked checkboxes
       CheckBoxPage.resultVali.should("contain.text", "notesreactangulargeneralexcelFile");
     });
-    it.only("Checkboxes, scenario 2", () => {
+    it("Checkboxes, scenario 2", () => {
       // Create checkbox scenario 2:
       // Click expand button
       CheckBoxPage.expand.click();
@@ -112,13 +113,24 @@ context("Elements Page", () => {
 
   context("Buttons scenarios", () => {
     // Create buttons clicking scenario
-    // Create Buttons page
-    // Check documentation https://docs.cypress.io/api/commands/and for how to perform different types of clicking
-    // Click Double click button
-    // Validate the double click message
-    // Click rightclick button
-    // Validate the right click message
-    // Do dynamic click
-    // Validate dynamic click message
+    beforeEach(() => {
+      ButtonsPage.visit();
+    });
+    it.only("Button clicking, scenario 1", () => {
+      // Create Buttons page
+      // Check documentation https://docs.cypress.io/api/commands/and for how to perform different types of clicking
+      // Click Double click button
+      ButtonsPage.doubleClick.dblclick();
+      // Validate the double click message
+      ButtonsPage.doubleClickVali.should("have.text", "You have done a double click");
+      // Click rightclick button
+      ButtonsPage.rightClick.rightclick();
+      // Validate the right click message
+      ButtonsPage.rightClickVali.should("have.text", "You have done a right click");
+      // Do dynamic click
+      ButtonsPage.dynamicClick.click();
+      // Validate dynamic click message
+      ButtonsPage.dynamicClickVali.should("have.text", "You have done a dynamic click");
+    });
   });
 });
