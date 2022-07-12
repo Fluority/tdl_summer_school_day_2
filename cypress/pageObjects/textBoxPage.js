@@ -5,7 +5,6 @@ class TextBoxPage extends BasePage {
     return "/text-box";
   }
 
-
   static get username() {
     return cy.get("#userName");
   }

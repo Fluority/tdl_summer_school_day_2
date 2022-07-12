@@ -5,7 +5,6 @@ class RadioButtonsPage extends BasePage {
     return "/radio-button";
   }
 
-
   static get yesButton() {
     return cy.get('[class="custom-control-label"][for="yesRadio"]');
   }

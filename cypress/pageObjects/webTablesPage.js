@@ -5,7 +5,6 @@ class WebTablesPage extends BasePage {
     return "/webtables";
   }
 
-
   static get addRecordButton() {
     return cy.get('#addNewRecordButton');
   }

@@ -5,7 +5,6 @@ class CheckBoxPage extends BasePage {
     return "/checkbox";
   }
 
-
   static get expand() {
     return cy.get('button[class="rct-option rct-option-expand-all"]');
   }
