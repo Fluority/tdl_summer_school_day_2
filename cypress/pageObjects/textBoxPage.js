@@ -5,8 +5,24 @@ class TextBoxPage extends BasePage {
     return "/text-box";
   }
 
-  static get xxx() {
-    return cy.get("xxx");
+  static get username() {
+    return cy.get("#userName");
+  }
+
+  static get email() {
+    return cy.get("#userEmail");
+  }
+
+  static get currAddress() {
+    return cy.get('#currentAddress');
+  }
+
+  static get permAddress() {
+    return cy.get('#permanentAddress');
+  }
+
+  static get submit() {
+    return cy.get('#submit');
   }
 }
 

@@ -10,7 +10,11 @@ context("Elements Page", () => {
     // fill in textboxes with necessary information
     // validate the paragraphs
     it("Filling in Text Boxes", () => {
-      // add the necessary steps
+      TextBoxPage.username.type("John Doe");
+      TextBoxPage.email.type("johndoe@gmail.com");
+      TextBoxPage.currAddress.type("Liepu iela 3, Aizpute");
+      TextBoxPage.permAddress.type("Maizes iela 12, Aizpute");
+      TextBoxPage.submit.click();
     });
   });
 

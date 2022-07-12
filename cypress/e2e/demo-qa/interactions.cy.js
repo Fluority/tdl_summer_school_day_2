@@ -1,4 +1,7 @@
 // import page objects
+import BasePage from "../pageObjects/basePage.js";
+import TextBoxPage from "../../pageObjects/textBoxPage";
+
 
 context("Interactions", () => {
   context("Selectable", () => {
