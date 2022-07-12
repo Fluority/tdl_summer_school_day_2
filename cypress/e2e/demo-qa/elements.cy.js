@@ -15,6 +15,11 @@ context("Elements Page", () => {
       TextBoxPage.currAddress.type("Liepu iela 3, Aizpute");
       TextBoxPage.permAddress.type("Maizes iela 12, Aizpute");
       TextBoxPage.submit.click();
+      // Validation
+      TextBoxPage.usernameVali.should("have.text", "Name:John Doe");
+      TextBoxPage.emailVali.should("have.text", "Email:johndoe@gmail.com");
+      TextBoxPage.currAddressVali.should("have.text", "Current Address :Liepu iela 3, Aizpute ");
+      TextBoxPage.permAddressVali.should("have.text", "Permananet Address :Maizes iela 12, Aizpute");
     });
   });
 
