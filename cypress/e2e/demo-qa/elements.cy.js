@@ -1,6 +1,6 @@
-import TextBoxPage from "../../pageObjects/textBoxPage";
-import CheckBoxPage from "../../pageObjects/checkBoxPage";
-import RadioButtonsPage from "../../pageObjects/radioButtonsPage";
+import TextBoxPage from "../../pageObjects/textBoxPage"; // - finished
+import CheckBoxPage from "../../pageObjects/checkBoxPage"; // - not finished
+import RadioButtonsPage from "../../pageObjects/radioButtonsPage"; // - finished
 
 context("Elements Page", () => {
   context("Text box scenarios", () => {
@@ -55,10 +55,13 @@ context("Elements Page", () => {
       // Click yesButton
       RadioButtonsPage.yesButton.click();
       // validate the message
-      RadioButtonsPage.yesButtonVali.should('have.text',"Yes");
+      RadioButtonsPage.ButtonVali.should('have.text',"Yes");
       // click impressiveButton
+      RadioButtonsPage.impressiveButton.click();
       // validate the message
+      RadioButtonsPage.ButtonVali.should('have.text',"Impressive");
       // noButton - validate that the button exists but is disabled
+      RadioButtonsPage.noButton.should("be.disabled");
     });
   });
 
